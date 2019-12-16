@@ -3,7 +3,8 @@ name: Trigger Jenkins
 on:
   push:
     branches:
-    - mvn-repo 
+    - mvn-repo
+    - master
 
 jobs:
   build:
