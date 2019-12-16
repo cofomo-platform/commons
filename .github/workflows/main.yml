@@ -1,6 +1,9 @@
 name: Trigger Jenkins
 
-on: [push]
+on:
+  push:
+    branches:
+      - mvn-repo
 
 jobs:
   build:
