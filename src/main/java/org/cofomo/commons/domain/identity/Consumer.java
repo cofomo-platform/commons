@@ -2,9 +2,10 @@ package org.cofomo.commons.domain.identity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,12 +18,13 @@ import lombok.NoArgsConstructor;
 public class Consumer {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+	@GeneratedValue(generator = "system-uuid")
+	@GenericGenerator(name = "system-uuid", strategy = "uuid")
+    String id;
     
     @NotBlank
-    private String username;
+    String username;
     
     @NotBlank
-    private String password;
+    String password;
 }
