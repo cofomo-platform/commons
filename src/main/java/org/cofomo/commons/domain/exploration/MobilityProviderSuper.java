@@ -4,28 +4,19 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.annotations.GenericGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MobilityProvider {
-	
-	@Id
-	@GeneratedValue(generator = "system-uuid")
-	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-	String id;
+@MappedSuperclass
+public abstract class MobilityProviderSuper {
 	
 	@NotBlank
 	String name;
@@ -47,7 +38,7 @@ public class MobilityProvider {
 	@NotNull
 	LocalDateTime lastHeartBeat;
 	
-	public MobilityProvider(String name, String url, List<Integer> areas, List<String> offers) {
+	public MobilityProviderSuper(String name, String url, List<Integer> areas, List<String> offers) {
 		this.name = name;
 		this.url = url;
 		this.operationAreas = areas;

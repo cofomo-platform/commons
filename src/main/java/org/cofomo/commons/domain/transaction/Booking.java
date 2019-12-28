@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
@@ -18,6 +19,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -47,6 +49,7 @@ public class Booking {
 	String status;
 	
 	@NotBlank
+	@ElementCollection
 	List<String> communicationOptions;
 	
 	public Booking(MobilityOption option, List<VerifiableClaim> claims, String status, List<String> communicationOptions) {

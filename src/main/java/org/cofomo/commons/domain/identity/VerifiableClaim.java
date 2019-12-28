@@ -2,6 +2,7 @@ package org.cofomo.commons.domain.identity;
 
 import java.util.Date;
 
+import javax.persistence.Embeddable;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.URL;
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Embeddable
 public class VerifiableClaim {
 	
 	// later
